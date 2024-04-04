@@ -9,16 +9,16 @@ import { ToastsContext } from "../ToastProvider/ToastProvider";
 const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 
 function ToastPlayground() {
-	const { createToast } = React.useContext(ToastsContext);
-	const [variant, setVariant] = React.useState("notice");
-	const [message, setMessage] = React.useState("");
-	
-	function handleCreateToast(event) { 
-		event.preventDefault();
-		createToast(variant, message);
-		setMessage("");
-		setVariant("notice");
-	}
+  const { createToast } = React.useContext(ToastsContext);
+  const [variant, setVariant] = React.useState("notice");
+  const [message, setMessage] = React.useState("");
+
+  function handleCreateToast(event) {
+    event.preventDefault();
+    createToast(variant, message);
+    setMessage("");
+    setVariant("notice");
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -28,10 +28,7 @@ function ToastPlayground() {
       </header>
 
       <ToastShelf />
-      <form
-        className={styles.controlsWrapper}
-        onSubmit={handleCreateToast}
-      >
+      <form className={styles.controlsWrapper} onSubmit={handleCreateToast}>
         <div className={styles.row}>
           <label
             htmlFor="message"
